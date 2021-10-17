@@ -12,35 +12,57 @@ public class ejercicio7 {
         valor se arranca a calcular y elsegundo con qué valor debe frenar (no se incluye en el cálculo)
         Ejemplo: (1, 5) ----> calculará valores de 1, 2, 3, 4  */
 
-        int num1;
-        int num2;
-        ArrayList<String> sumaTotal = new ArrayList<String>();
+        int num1, num2, bandera = 1;     
         Scanner consola = new Scanner(System.in);
 
-        System.out.println("Ingrese su primer numero, que sea del menor: ");
-        num1 = consola.nextInt();
-        consola.nextLine();
-        System.out.println("Ingrese su segundo numero, el más grande: ");
-        num2 = consola.nextInt();
-        consola.nextLine();
+        do{
+            if(bandera == 1){
+                System.out.println("Ingrese la cota inferior (incluida): ");
+                num1 = consola.nextInt();
+                consola.nextLine();
 
-        for (int i = num1; i < num2; i++) {
-            if (num1 % 2 == 0 && num1 % 3 == 0) {
-                sumaTotal.add(i + ". FizzBuzz");
-            } else if (num1 % 3 == 0) {
-                sumaTotal.add(i + ". Buzz");
-            } else if (num1 % 2 == 0) {
-                sumaTotal.add(i + ". Fizz");
-            } else {
-                System.out.println("Numero no multiplo de 2 ni de 3");
+                System.out.println("Ingrese la cota superior (Excluida):");
+                num2 = consola.nextInt();
+                consola.nextLine();
+                bandera = 0;
+            }else{
+                System.out.println("¡Tenga en cuenta que el primer valor debe ser menor que el segundo!");
+                System.out.println("Ingrese la cota inferior (incluida): ");
+                num1 = consola.nextInt();
+                consola.nextLine();
+
+                System.out.println("Ingrese la cota superior (Excluida):");
+                num2 = consola.nextInt();
+                consola.nextLine();
             }
-
-        }
-        for (int j = 0; j < sumaTotal.size(); j++) {
-            System.out.println(sumaTotal.get(j));
-
+            
+        }while(num1 >= num2);
+            
+        
+        ArrayList<String> resultado = juego(num1, num2);
+        
+        for (int i = 0; i < resultado.size(); i++) {
+            System.out.println(resultado.get(i));
         }
 
         consola.close();
+    }
+
+    static ArrayList<String> juego(Integer dato1, Integer dato2){
+        ArrayList<String> resultado = new ArrayList<String>();
+        
+        for (int i = dato1 ; i < dato2; i++) {
+            if (i % 2 == 0 && i % 3 == 0) {
+                resultado.add("#" + i + ". FizzBuzz");
+            } else if (i % 3 == 0) {
+                resultado.add("#" + i + ". Buzz");
+            } else if (i % 2 == 0) {
+                resultado.add("#" + i + ". Fizz");
+            } else {
+                System.out.println("#" + i + ". No es divisible ni por 2 ni por 3...");
+            }
+
+        }
+        return resultado;
     }
 }

@@ -56,6 +56,6 @@ class Employee {
     }
 
     public float valor() {
-        return this.horasTrabajadas * this.valorPorHora;
+        return (this.horasTrabajadas * this.valorPorHora);
     }
 }
