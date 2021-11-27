@@ -1,3 +1,4 @@
+package otros;
 
 public class anotaciones {
     public static void main(String[] args) {

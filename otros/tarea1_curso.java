@@ -1,3 +1,4 @@
+package otros;
 import java.util.Scanner;
 
 public class tarea1_curso {
