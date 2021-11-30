@@ -1,4 +1,4 @@
-package ejemplos_nivel_I;
+package ejemplos_nivel_1;
 
 
 import java.util.Scanner;

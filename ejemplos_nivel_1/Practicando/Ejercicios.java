@@ -1,4 +1,4 @@
-package ejemplos_nivel_I.Practicando;
+package ejemplos_nivel_1.Practicando;
 
 
 import java.util.Arrays;
